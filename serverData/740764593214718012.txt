@@ -1,0 +1,12 @@
+{
+    "serverDetails": {
+        "Name": "Testing Grounds",
+        "ID": "740764593214718012",
+        "Entry Submission DTG": "05/25/2021, 21:38:35"
+    },
+    "options": {
+        "paused": "False",
+        "whitelist": [],
+        "blacklist": []
+    }
+}

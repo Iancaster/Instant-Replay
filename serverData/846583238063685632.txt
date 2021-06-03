@@ -1,0 +1,12 @@
+{
+    "serverDetails": {
+        "Name": "David Lancaster's server",
+        "ID": "846583238063685632",
+        "Entry Submission DTG": "05/25/2021, 21:38:35"
+    },
+    "options": {
+        "paused": "False",
+        "whitelist": [],
+        "blacklist": []
+    }
+}
