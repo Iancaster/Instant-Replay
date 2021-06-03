@@ -365,12 +365,12 @@ async def tutorialFunc(channel):
             await promptFunc(channel,'Examples',"This will cover how to use the bot to replay channels. \
             First, open the prompt with `Ir.replay`. If you call this while in a server, it'll replay from that server, \
             but if you call `Ir.replay` from your DMs with the bot, it'll ask you for an invite so it knows what server you want. \
-            \nNext, you type out the name of the first channel you want to replay. (If you're in a server, you can also #mention it.) \
+            \n\nNext, you type out the name of the first channel you want to replay. (If you're in a server, you can also #mention it.) \
             We'll use `general` as an example. Click the :leftwards_arrow_with_hook: after it's accepted to go back to the channel adding prompt. \
             From there, you can add another channel, or press :leftwards_arrow_with_hook: again to go to the next step. \
-            \nFrom there, you can see the channels you have queued and :pencil2: add or :put_litter_in_its_place: remove channels. \
+            \n\nFrom there, you can see the channels you have queued and :pencil2: add or :put_litter_in_its_place: remove channels. \
             If you're happy with what you have, go on to :arrow_forward: play the next step, which is to determine how long ago you want to replay from. \
-            \nIt'll give you a lot of example as to how you can talk to it, but let's just say you want to start from `yesterday`. It'll \
+            \n\nIt'll give you a lot of example as to how you can talk to it, but let's just say you want to start from `yesterday`. It'll \
             ask you if it understood you correctly and give you the time it thinks you mean. If it did, press the :white_check_mark: and \
             then the :leftwards_arrow_with_hook: to go back. From there, it's a list of each channel and the time you decided on. Since \
             we only have the one channel being replayed, we only needed to specify time once-- press the :arrow_forward: to finish and begin actual playback!\
@@ -393,12 +393,12 @@ async def examples(ctx):
     await promptFunc(ctx.channel,'Examples',"This will cover how to use the bot to replay channels. \
     First, open the prompt with `Ir.replay`. If you call this while in a server, it'll replay from that server, \
     but if you call `Ir.replay` from your DMs with the bot, it'll ask you for an invite so it knows what server you want. \
-    \nNext, you type out the name of the first channel you want to replay. (If you're in a server, you can also #mention it.) \
+    \n\nNext, you type out the name of the first channel you want to replay. (If you're in a server, you can also #mention it.) \
     We'll use `general` as an example. Click the :leftwards_arrow_with_hook: after it's accepted to go back to the channel adding prompt. \
     From there, you can add another channel, or press :leftwards_arrow_with_hook: again to go to the next step. \
-    \nFrom there, you can see the channels you have queued and :pencil2: add or :put_litter_in_its_place: remove channels. \
+    \n\nFrom there, you can see the channels you have queued and :pencil2: add or :put_litter_in_its_place: remove channels. \
     If you're happy with what you have, go on to :arrow_forward: play the next step, which is to determine how long ago you want to replay from. \
-    \nIt'll give you a lot of example as to how you can talk to it, but let's just say you want to start from `yesterday`. It'll \
+    \n\nIt'll give you a lot of example as to how you can talk to it, but let's just say you want to start from `yesterday`. It'll \
     ask you if it understood you correctly and give you the time it thinks you mean. If it did, press the :white_check_mark: and \
     then the :leftwards_arrow_with_hook: to go back. From there, it's a list of each channel and the time you decided on. Since \
     we only have the one channel being replayed, we only needed to specify time once-- press the :arrow_forward: to finish and begin actual playback!\
