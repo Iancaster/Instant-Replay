@@ -13,34 +13,35 @@ import dateparser
 client = commands.Bot(command_prefix='Ir.', case_insensitive=True)
 helpMessages = {
     'help' : "Aliases: `H`.\nA dual-purpose command. Can be used on its own to bring up \
-        the main menu, or if you write a command after it, like you did here, it will display documentation.",
+    the main menu, or if you write a command after it, like you did here, it will display documentation.",
     'tutorial' : "Aliases: `Guide`.\nShows you some resources for learning the commands, including how \
-        to access the additional documentation you're reading right now.",
+    to access the additional documentation you're reading right now.",
     'commandslist' : "Aliases: `Commands`.\nLists out every command the bot has access to, and \
-        provides a brief description of what each one does. Neatly categorized, too.",
+    provides a brief description of what each one does. Neatly categorized, too.",
+    'examples' : "Aliases: None.\nShows you what it might look like to use the bot.",
     'support' : "Aliases: None\nGives you my contact in case you want to say a word or report a bug.",
     'options' : "Aliases: `Settings`.\nAllows anyone in the server to view some surface-level \
-        information about the server's current settings.",
+    information about the server's current settings.",
     'pauseMenu' : "Aliases: `PauseState`.\nViews the server's current pause state. This means \
-        it'll allow people to replay fom it if it's unpaused (or vice versa if it *is* paused.",
+    it'll allow people to replay fom it if it's unpaused (or vice versa if it *is* paused.",
     'pause' : "Aliases: `P`.\nPauses the server from being replayed.",
     'unpause' : "Aliases: `UP`.\nUnpauses the server, allowing replays.",
     'whitelist' : "Aliases: `WL`.\nView the whitelist, or 'what channels are allowed to be played \
-        while every other channel is not'.",
+    while every other channel is not'.",
     'blacklist' : "Aliases: `BL`.\nViews the blacklist. Channels here are blocked from being replayed, \
-        but if there's a whitelist, channels on that list will override whatever is written on this one.",
+    but if there's a whitelist, channels on that list will override whatever is written on this one.",
     'whitelistadd' : "Aliases: `WLAdd`, `WL+`, `Whitelist+`.\nAdds a channel to the whitelist based on \
-        the mention an admin provides. Using `whitelistadd #mention` allows you to skip the prompt \
-        and cut straight to adding a channel.",
+    the mention an admin provides. Using `whitelistadd #mention` allows you to skip the prompt \
+    and cut straight to adding a channel.",
     'blacklistadd' : "Aliases: `BLAdd`, `BL+`, `Blacklist+`.\nAdds a channel to the blacklist based on \
-        the mention an admin provides. Using `blacklistadd #mention` allows you to skip the prompt \
-        and cut straight to adding a channel.",
+    the mention an admin provides. Using `blacklistadd #mention` allows you to skip the prompt \
+    and cut straight to adding a channel.",
     'whitelistremove' : "Aliases: `WLRemove`, `WL-`, `Whitelist-`.\nRemoves a channel from the list. \
-        Using `whitelistremove #mention` allows you to skip the prompt and cut straight to removing a channel.",
+    Using `whitelistremove #mention` allows you to skip the prompt and cut straight to removing a channel.",
     'blacklistremove' : "Aliases: `BLRemove`, `BL-`, `Blacklist-`.\nRemoves a channel from the list. \
-        Using `whitelistremove #mention` allows you to skip the prompt and cut straight to removing a channel.",
+    Using `whitelistremove #mention` allows you to skip the prompt and cut straight to removing a channel.",
     'replay' : "Aliases: `Play`, `Read`, `Reread`, `Watch`, `Rewatch`, `Rerun`, `Rewind`.\nBegins \
-        the replay process. There's a lot of aliases for this one, so feel free to use whichever you like best."
+    the replay process. There's a lot of aliases for this one, so feel free to use whichever you like best."
 }
 ##Setup
 print ("Allow me a moment to wake up...")
@@ -361,7 +362,19 @@ async def tutorialFunc(channel):
             you can review every command with `Ir.commandslist`, or just go back to the last menu and click the :notepad_spiral: .",
             tutorialFunc,channel)
         if reaction == '👨‍🏫':
-            pass
+            await promptFunc(channel,'Examples',"""This will cover how to use the bot to replay channels. 
+            First, open the prompt with `Ir.replay`. If you call this while in a server, it'll replay from that server, 
+            but if you call `Ir.replay` from your DMs with the bot, it'll ask you for an invite so it knows what server you want. 
+            \nNext, you type out the name of the first channel you want to replay. (If you're in a server, you can also #mention it.) 
+            We'll use `general` as an example. Click the :leftwards_arrow_with_hook: after it's accepted to go back to the channel adding prompt. 
+            From there, you can add another channel, or press :leftwards_arrow_with_hook: again to go to the next step. 
+            \nFrom there, you can see the channels you have queued and :pencil2: add or :put_litter_in_its_place: remove channels. 
+            If you're happy with what you have, go on to :arrow_forward: play the next step, which is to determine how long ago you want to replay from. 
+            \nIt'll give you a lot of example as to how you can talk to it, but let's just say you want to start from `yesterday`. It'll \
+            ask you if it understood you correctly and give you the time it thinks you mean. If it did, press the :white_check_mark: and \
+            then the :leftwards_arrow_with_hook: to go back. From there, it's a list of each channel and the time you decided on. Since \
+            we only have the one channel being replayed, we only needed to specify time once-- press the :arrow_forward: to finish and begin actual playback!
+            """,tutorialFunc,channel)
         if reaction == '↩️':
             pass
         else:
@@ -371,6 +384,26 @@ async def tutorialFunc(channel):
     
     return
 
+@client.command()
+async def examples(ctx):
+    try:
+        await ctx.message.delete()
+    except:
+        pass
+    await promptFunc(ctx.channel,'Examples',"""This will cover how to use the bot to replay channels. 
+    First, open the prompt with `Ir.replay`. If you call this while in a server, it'll replay from that server, 
+    but if you call `Ir.replay` from your DMs with the bot, it'll ask you for an invite so it knows what server you want. 
+    \nNext, you type out the name of the first channel you want to replay. (If you're in a server, you can also #mention it.) 
+    We'll use `general` as an example. Click the :leftwards_arrow_with_hook: after it's accepted to go back to the channel adding prompt. 
+    From there, you can add another channel, or press :leftwards_arrow_with_hook: again to go to the next step. 
+    \nFrom there, you can see the channels you have queued and :pencil2: add or :put_litter_in_its_place: remove channels. 
+    If you're happy with what you have, go on to :arrow_forward: play the next step, which is to determine how long ago you want to replay from. 
+    \nIt'll give you a lot of example as to how you can talk to it, but let's just say you want to start from `yesterday`. It'll \
+    ask you if it understood you correctly and give you the time it thinks you mean. If it did, press the :white_check_mark: and \
+    then the :leftwards_arrow_with_hook: to go back. From there, it's a list of each channel and the time you decided on. Since \
+    we only have the one channel being replayed, we only needed to specify time once-- press the :arrow_forward: to finish and begin actual playback!
+    """,tutorialFunc,ctx.channel)
+    return
 
 @client.command()
 async def support(ctx):
@@ -404,6 +437,7 @@ async def commandsFunc(channel):
     **Help:** Shows you the main menu, or gives you detailed info on a specific command (see Ir.CommandHelp). \n\
     **Tutorial:** A menu to help you learn the ins and outs of the Instant Replay Bot. \n\
     **CommandsList:** What you're looking at right now.\n\
+    **Examples:** Shows you how it might look to use the bot.\n\
     **Support:** Say hi or tell me what needs fixing.\
     """)
 
@@ -487,7 +521,7 @@ async def optionsFunc(channel):
         if not data['options']['whitelist'] and not data['options']['blacklist']:
             reactions.extend(['🔳', '🔲'])
             allowed = " **All** channels are available for replaying! Click on the :white_square_button: \
-                to create a whitelist, or :black_square_button: to create a blacklist."
+            to create a whitelist, or :black_square_button: to create a blacklist."
             embed.add_field(name = 'No Limits!', value = ':white_check_mark:' + allowed)
         if data['options']['whitelist']:
             reactions.append('🔳')
@@ -686,16 +720,16 @@ async def channelListFunc(channel,color):
         upperListName = 'Whitelist'
         listDescription = "Everything in this list is eligible for replaying. Everything that's *not* here, well..."
         fieldValue = "That is to say, this is where the whitelist *would* be, \
-            if there was one made. If there's also no blacklist (and replaying isn't paused, either), then that means \
-            every channel can be replayed!"
+        if there was one made. If there's also no blacklist (and replaying isn't paused, either), then that means \
+        every channel can be replayed!"
         fieldName = 'Allowed channels...'
     else:
         listName = 'blacklist'
         upperListName = 'Blacklist'
         listDescription = "Channels listed here can't be replayed. Everything else, though, should be fair game."
         fieldValue = "Well, that is, this is where you'd put it, if there \
-            was a blacklist made for this server. Since there's not, there's a good chance that all channels are \
-            free to be replayed, unless there's a whitelist."
+        was a blacklist made for this server. Since there's not, there's a good chance that all channels are \
+        free to be replayed, unless there's a whitelist."
         fieldName = 'Prohibited channels...'
 
 
@@ -768,7 +802,7 @@ async def whitelistadd(ctx):
                 return
         except:
             await promptFunc(ctx.channel,'Channel not found!',"Couldn't add a channel that doesn't exist. \
-                Double check that there's no typos.",channelListAddFunc,ctx.channel,ctx.author)
+            Double check that there's no typos.",channelListAddFunc,ctx.channel,ctx.author)
             return
         
         if listChannel in data['options'][listName]:
@@ -807,7 +841,7 @@ async def blacklistadd(ctx):
                 return
         except:
             await promptFunc(ctx.channel,'Channel not found!',"Couldn't add a channel that doesn't exist. \
-                Double check that there's no typos.",channelListAddFunc,ctx.channel,ctx.author)
+            Double check that there's no typos.",channelListAddFunc,ctx.channel,ctx.author)
             return
         
         if listChannel in data['options'][listName]:
@@ -893,7 +927,7 @@ async def channelListAddFunc(channel,member,color):
                 return
         except:
             await promptFunc(channel,'Channel not found!',"Couldn't add a channel that doesn't exist. \
-                Double check that there's no typos.",channelListAddFunc,channel,member)
+            Double check that there's no typos.",channelListAddFunc,channel,member)
             return
         
         if listChannel in data['options'][listName]:
@@ -932,7 +966,7 @@ async def whitelistremove(ctx):
                 return
         except:
             await promptFunc(ctx.channel,'Channel not found!',"Couldn't remove a channel that doesn't exist. \
-                Double check that there's no typos.",channelListRemoveFunc,ctx.channel,ctx.author)
+            Double check that there's no typos.",channelListRemoveFunc,ctx.channel,ctx.author)
             return
         
         if listChannel not in data['options'][listName]:
@@ -971,7 +1005,7 @@ async def blacklistremove(ctx):
                 return
         except:
             await promptFunc(ctx.channel,'Channel not found!',"Couldn't remove a channel that doesn't exist. \
-                Double check that there's no typos.",channelListRemoveFunc,ctx.channel,ctx.author)
+            Double check that there's no typos.",channelListRemoveFunc,ctx.channel,ctx.author)
             return
         
         if listChannel not in data['options'][listName]:
@@ -1056,7 +1090,7 @@ async def channelListRemoveFunc(channel,member,color):
                 return
         except:
             await promptFunc(channel,'Channel not found!',"Couldn't remove a channel that doesn't exist. \
-                Double check that there's no typos.",channelListRemoveFunc,channel,member)
+            Double check that there's no typos.",channelListRemoveFunc,channel,member)
             return
         
         if listChannel not in data['options'][listName]:
@@ -1094,7 +1128,7 @@ async def replay(ctx):
             await replayIdentifyGuildFunc(ctx.author,ctx.channel,guild)
         except:
             await promptFunc(ctx.channel,'What was that?', "If you want to replay an specific server, \
-                you have to send me a valid invite.",replayIdentifyGuildFunc,ctx.author,ctx.channel,None)
+            you have to send me a valid invite.",replayIdentifyGuildFunc,ctx.author,ctx.channel,None)
         
     return
 
@@ -1472,8 +1506,8 @@ async def replayRequestTimeFunc(channel,guild,acceptedChannels,acceptedTimes):
 
     if date == None:
         await promptFunc(channel,"Whoops.","I know I said I can understand most things, but maybe not *all* things. \
-            Check back at the list for what I can most easily understand (whatever you just said doesn't qualify).",
-            replayRequestTimeFunc,channel,guild,acceptedChannels,acceptedTimes)
+        Check back at the list for what I can most easily understand (whatever you just said doesn't qualify).",
+        replayRequestTimeFunc,channel,guild,acceptedChannels,acceptedTimes)
         return
 
     if date > datetime.now():
