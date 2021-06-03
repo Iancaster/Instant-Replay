@@ -370,9 +370,9 @@ async def tutorialFunc(channel):
             From there, you can add another channel, or press :leftwards_arrow_with_hook: again to go to the next step. 
             \nFrom there, you can see the channels you have queued and :pencil2: add or :put_litter_in_its_place: remove channels. 
             If you're happy with what you have, go on to :arrow_forward: play the next step, which is to determine how long ago you want to replay from. 
-            \nIt'll give you a lot of example as to how you can talk to it, but let's just say you want to start from `yesterday`. It'll \
-            ask you if it understood you correctly and give you the time it thinks you mean. If it did, press the :white_check_mark: and \
-            then the :leftwards_arrow_with_hook: to go back. From there, it's a list of each channel and the time you decided on. Since \
+            \nIt'll give you a lot of example as to how you can talk to it, but let's just say you want to start from `yesterday`. It'll 
+            ask you if it understood you correctly and give you the time it thinks you mean. If it did, press the :white_check_mark: and 
+            then the :leftwards_arrow_with_hook: to go back. From there, it's a list of each channel and the time you decided on. Since 
             we only have the one channel being replayed, we only needed to specify time once-- press the :arrow_forward: to finish and begin actual playback!
             """,tutorialFunc,channel)
         if reaction == '↩️':
@@ -414,7 +414,6 @@ async def support(ctx):
     await promptFunc(ctx.channel,'Aw, thanks.','If you want to thank me or tell me about some glitch in the bot, \
         you can contact me at David Lancaster#1532. Either is appreciated.',helpFunc,ctx.channel)
     return
-
 
 @client.command(aliases=['Commands'])
 async def commandslist(ctx):
