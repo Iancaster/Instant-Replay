@@ -18,7 +18,7 @@ helpMessages = {
         to access the additional documentation you're reading right now.",
     'commandslist' : "Aliases: `Commands`.\nLists out every command the bot has access to, and \
         provides a brief description of what each one does. Neatly categorized, too.",
-    'support' : "Aliases: None\nGives you my contact in case you want to say a word or report a bug."
+    'support' : "Aliases: None\nGives you my contact in case you want to say a word or report a bug.",
     'options' : "Aliases: `Settings`.\nAllows anyone in the server to view some surface-level \
         information about the server's current settings.",
     'pauseMenu' : "Aliases: `PauseState`.\nViews the server's current pause state. This means \
