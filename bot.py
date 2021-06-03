@@ -1634,8 +1634,8 @@ async def replayMessageFunc(message,finalEmbed,paused,deleteMessage):
     color = discord.Color(000000)
     ) 
 
-    embed.set_footer(text=message.created_at.strftime("Sent on %A, %B %d, at %I:%M %p, in")
-     + message.channel.mention + '.',icon_url=message.author.avatar_url)
+    embed.set_footer(text=message.created_at.strftime("Sent on %A, %B %d, at %I:%M %p, in ")
+     + message.channel.name + '.',icon_url=message.author.avatar_url)
     try:
         await finalEmbed.edit(embed=embed)
     except:
