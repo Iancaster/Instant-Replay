@@ -1646,7 +1646,6 @@ async def replayMessageFunc(message,finalEmbed,paused,deleteMessage):
     
     #Recieve reactions, and assign to reaction if user responded
     rawReaction = await listenReactFunc(finalEmbed.channel,None,finalEmbed.id,600,True)
-    deleteMessage = asyncio.create_task(replayDeleteMessageFunc(finalEmbed))
     if rawReaction:
         reaction = str(rawReaction.emoji)
         if finalEmbed.channel.type == discord.ChannelType.text:
@@ -1688,6 +1687,7 @@ async def replayMessageFunc(message,finalEmbed,paused,deleteMessage):
             pass
         if message.author == client.user:
             await replayNoMessageFunc(message,finalEmbed,paused,deleteMessage)
+        deleteMessage = asyncio.create_task(replayDeleteMessageFunc(finalEmbed))
         await replayMessageFunc(message,finalEmbed,paused,deleteMessage)
     else:
         pass
