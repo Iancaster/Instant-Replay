@@ -156,7 +156,7 @@ async def deleteSelf(finalembed,channel):
 
     try: #Excuse itself and remove the message
         await finalembed.delete()
-        exiting = await channel.send("No reaction recieved in the last minute. Closing...")
+        exiting = await channel.send("No reaction recieved in the last two minutes. Closing...")
         await asyncio.sleep(5)
         await exiting.delete()
     except: #The message is already gone
@@ -180,7 +180,7 @@ async def promptFunc(channel,title,description,origin,*args):
         return
 
     #Recieve reactions, and assign to reaction if user responded
-    rawReaction = await listenReactFunc(channel,None,finalembed.id,60,True)
+    rawReaction = await listenReactFunc(channel,None,finalembed.id,120,True)
     if rawReaction:
         reaction = str(rawReaction.emoji)
         await finalembed.delete()
@@ -365,7 +365,7 @@ async def tutorialFunc(channel):
         if reaction == '👨‍🏫':
             await examplesFunc(channel)
         if reaction == '↩️':
-            pass
+            await helpFunc(channel)
         else:
             pass
     else:
